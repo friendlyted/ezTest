@@ -1,0 +1,1 @@
+importScripts("https://friendlyted.github.io/ezTS/loader/service-worker.js");

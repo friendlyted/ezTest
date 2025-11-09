@@ -1,0 +1,9 @@
+// file is required for IDEA
+{
+  "compilerOptions": {
+    "allowImportingTsExtensions": true,
+    "lib": ["dom", "ES2020"],
+    "module": "ES2020",
+    "target": "ES2020"
+  }
+}
