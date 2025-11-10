@@ -70,7 +70,7 @@ export class SilentSummary implements ModuleOutput {
     }
 }
 
-export class ConsoleSummary implements ModuleOutput, TestOutput {
+export class ConsoleOutput implements ModuleOutput, TestOutput {
     protected okNumber = 0;
     protected errorNumber = 0;
     private readonly moduleName: string;
@@ -102,10 +102,16 @@ export class ConsoleSummary implements ModuleOutput, TestOutput {
     }
 }
 
-export class ImportantConsoleSummary extends ConsoleSummary{
-    module() {}
-    execute(){}
-    ok(){this.okNumber++}
+export class ImportantConsoleOutput extends ConsoleOutput {
+    module() {
+    }
+
+    execute() {
+    }
+
+    ok() {
+        this.okNumber++
+    }
 }
 
 export async function testModule(module: Module, options?: TestModuleOptions) {
