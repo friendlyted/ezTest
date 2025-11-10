@@ -1,4 +1,4 @@
-export type ConditionType = boolean | Promise<boolean> | (()=>ConditionType);
+import type {ConditionType} from "./types.d.ts";
 
 export async function assertThat(condition: ConditionType, message: string) {
     if (condition === null || condition === undefined) throw "Assertion requires arguments (condition, message)";

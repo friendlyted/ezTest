@@ -1,55 +1,15 @@
-interface BeforeAllTests {
-    (): void | Promise<void>;
-}
-
-interface AfterAllTests {
-    (): void | Promise<void>;
-}
-
-interface BeforeTest {
-    (name: string, fnPtr: any): void | Promise<void>;
-}
-
-interface AfterTest {
-    (name: string, fnPtr: any): void | Promise<void>;
-}
-
-interface ModuleOutput extends TestOutput {
-    module(): void;
-
-    total(): void;
-}
-
-interface TestOutput {
-    execute(fnName: string): void;
-
-    ok(fnName: string): void;
-
-    fail(fnName: string, err: any): void;
-}
-
-type Module = {
-    default?: unknown;
-    [key: string]: any;
-}
-
-type ModulePromise = Promise<Module>;
-
-type TestSuiteOptions = {
-    output?: (moduleName: string) => ModuleOutput,
-    executor?: TestExecutor,
-    parallel?: boolean
-}
-
-type TestModuleOptions = {
-    output?: TestOutput,
-    executor?: TestExecutor,
-    parallel?: boolean
-}
-
-interface TestExecutor {
-    (fnName: string, fnPtr: any, summary: TestOutput, before?: BeforeTest, after?: AfterTest): Promise<void>;
-}
+import type {
+    AfterAllTests,
+    AfterTest,
+    BeforeAllTests,
+    BeforeTest,
+    Module,
+    ModuleOutput,
+    ModulePromise,
+    TestModuleOptions,
+    TestOutput,
+    TestSuiteOptions
+} from "./types.d.ts";
 
 export class SilentSummary implements ModuleOutput {
     public static readonly INSTANCE = new SilentSummary();
